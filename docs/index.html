@@ -11,53 +11,48 @@
         <div id="startScreen" class="screen">
             <h1>Assoziationsspiel</h1>
             <img id="mainLogo" src="logo.png" alt="Assoziationsspiel Logo">
+
             <div class="input-group">
-                <label for="player1NameInput">Dein Name:</label>
-                <input type="text" id="player1NameInput" placeholder="Namen eingeben">
+                <label for="playerNameInput">Dein Name:</label>
+                <input type="text" id="playerNameInput" placeholder="Namen eingeben" maxlength="15">
+                <button id="setPlayerNameButton">Fertig</button>
             </div>
-            <button id="startGameButton">Fertig</button>
-            <p id="statusMessage">Warte auf 2 Spieler...</p>
+            <p id="statusMessage" class="status-message">Warte auf 2 Spieler...</p>
         </div>
 
         <div id="gameScreen" class="screen hidden">
             <div class="game-header-top">
                 <img id="gameLogo" src="logo.png" alt="Assoziationsspiel Logo">
-                 </div>
+            </div>
 
-            <div class="game-content-scrollable">
-                <div class="header">
-                    <h2 id="currentStichwort">Stichwort wird geladen...</h2>
-                    <div class="score">Punkte: <span id="scoreDisplay">0/8</span></div>
+            <div class="score-display">
+                <h2 id="currentStichwort"></h2>
+                <p>Punkte: <span id="scoreDisplay">0</span>/<span id="maxRoundsDisplay">8</span></p>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="wordInput" placeholder="Dein Wort eingeben" maxlength="20">
+                <button id="submitWordButton">Senden</button>
+            </div>
+
+            <div class="player-words">
+                <div class="player-word-box" id="player1WordBox">
+                    <span id="player1Name">Spieler 1</span>
+                    <p id="player1Word"></p>
                 </div>
-
-                <div class="word-input-section">
-                    <input type="text" id="wordInput" placeholder="Dein Wort eingeben" disabled>
-                    <button id="submitWordButton" disabled>Senden</button>
+                <div class="player-word-box" id="player2WordBox">
+                    <span id="player2Name">Spieler 2</span>
+                    <p id="player2Word"></p>
                 </div>
+            </div>
 
-                <div class="player-words">
-                    <div class="player-display">
-                        <p class="player-name" id="player1NameDisplay"></p>
-                        <p class="player-word" id="player1WordDisplay"></p>
-                    </div>
-                    <div class="player-display">
-                        <p class="player-name" id="player2NameDisplay"></p>
-                        <p class="player-word" id="player2WordDisplay"></p>
-                    </div>
-                </div>
-
-                <div class="game-controls">
-                    <button id="nextButton" disabled>Weiter</button>
-                    <button id="resetButton" disabled>Falsch</button>
-                </div>
-            </div> </div>
-
-        <div id="winScreen" class="screen hidden">
-            <h2>Spiel beendet!</h2>
-            <p id="finalScoreMessage"></p>
-            <button id="playAgainButton">Nochmal spielen</button>
+            <div class="action-buttons">
+                <button id="nextRoundButton" class="hidden">Weiter</button>
+                <button id="resetRoundButton" class="hidden">Falsch</button>
+            </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
     <script src="script.js"></script>
 </body>
