@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assoziationsspiel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="startScreen" class="screen">
+            <h1>Assoziationsspiel</h1>
+            <img id="mainLogo" src="logo.png" alt="Assoziationsspiel Logo">
+            <div class="input-group">
+                <label for="player1NameInput">Dein Name:</label>
+                <input type="text" id="player1NameInput" placeholder="Namen eingeben">
+            </div>
+            <button id="startGameButton">Fertig</button>
+            <p id="statusMessage">Warte auf 2 Spieler...</p>
+        </div>
+
+        <div id="gameScreen" class="screen hidden">
+            <div class="game-header-top">
+                <img id="gameLogo" src="logo.png" alt="Assoziationsspiel Logo">
+                 </div>
+
+            <div class="game-content-scrollable">
+                <div class="header">
+                    <h2 id="currentStichwort">Stichwort wird geladen...</h2>
+                    <div class="score">Punkte: <span id="scoreDisplay">0/8</span></div>
+                </div>
+
+                <div class="word-input-section">
+                    <input type="text" id="wordInput" placeholder="Dein Wort eingeben" disabled>
+                    <button id="submitWordButton" disabled>Senden</button>
+                </div>
+
+                <div class="player-words">
+                    <div class="player-display">
+                        <p class="player-name" id="player1NameDisplay"></p>
+                        <p class="player-word" id="player1WordDisplay"></p>
+                    </div>
+                    <div class="player-display">
+                        <p class="player-name" id="player2NameDisplay"></p>
+                        <p class="player-word" id="player2WordDisplay"></p>
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button id="nextButton" disabled>Weiter</button>
+                    <button id="resetButton" disabled>Falsch</button>
+                </div>
+            </div> </div>
+
+        <div id="winScreen" class="screen hidden">
+            <h2>Spiel beendet!</h2>
+            <p id="finalScoreMessage"></p>
+            <button id="playAgainButton">Nochmal spielen</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
