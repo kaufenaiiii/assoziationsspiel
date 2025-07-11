@@ -1,6 +1,6 @@
 // public/script.js - FINALE VERSION (mit "Falsch"-Bestätigung & intelligentem Reset)
 
-const socket = io(); // Stellt eine Verbindung zum Socket.IO Server her
+const socket = io('https://assoziationsspiel-server.onrender.com'); // Stellt eine Verbindung zum Socket.IO Server her
 
 // --- DOM-Elemente holen ---
 const startScreen = document.getElementById('startScreen');
